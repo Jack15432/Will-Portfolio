@@ -1,7 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import emailjs from '@emailjs/browser';
-
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 import "./contact.css";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Contact = () => {
   const form = useRef();
@@ -19,20 +22,66 @@ const Contact = () => {
       e.target.reset()
   };
 
+  const sectionRef = useRef(null);
+  useEffect(() => {
+    const el = sectionRef.current;
+    gsap.fromTo(el, {opacity: 0 }, {opacity: 1, duration: 3, scrollTrigger: {
+      trigger: el,
+      scrub: true,
+      start: "top center",
+      end: "30px"
+    }})
+  });
+
+  const hItem = useRef(null);
+
+  useEffect(() => {
+    const el = hItem.current;
+    gsap.fromTo(el, {y: -100}, {y: 0, scrollTrigger: {
+      trigger: el,
+      scrub: true,
+      start: "top center",
+      end: "30px"
+    }})
+  });
+
+  const leftItem = useRef(null);
+  useEffect(() => {
+    const el = leftItem.current;
+    gsap.fromTo(el, {x: -30}, {x: 0, scrollTrigger: {
+      trigger: el,
+      scrub: true,
+      start: "top center",
+      end: "30px"
+    }})
+  })
+
+  const rightItem = useRef(null);
+  useEffect(() => {
+    const el = rightItem.current;
+    gsap.fromTo(el, {x: 30}, {x: 0, scrollTrigger: {
+      trigger: el,
+      scrub: true,
+      start: "top center",
+      end: "30px"
+    }})
+  })
+
+
   return (
-    <section className="contact section" id="contact">
-      <h2 className="section__title">Get in touch</h2>
+    <section ref={sectionRef} className="contact section" id="contact">
+      <h2 ref={hItem} className="section__title">Get in touch</h2>
       <span className="section__subtitle">Contact Me</span>
 
       <div className="contact__container container grid">
-        <div className="contact__content">
+        <div ref={leftItem} className="contact__content">
           <h3 className="contact__title">Talk to me</h3>
           <div className="contact__info">
             <div className="contact__card">
               <i className="bx bx-atom contact__card-icon"></i>
 
               <h3 className="contact__card-title">Messenger</h3>
-              <span className="contact__card-data">user.fb123</span>
+              <span className="contact__card-data">Wei Lin Chen</span>
 
               <a href="https://www.facebook.com" className="contact__button">
                 write me{" "}
@@ -44,7 +93,7 @@ const Contact = () => {
               <i className="bx bx-mail-send contact__card-icon"></i>
 
               <h3 className="contact__card-title">Email</h3>
-              <span className="contact__card-data">the@gmail.com</span>
+              <span className="contact__card-data">zzatosy@gmail.com</span>
 
               <a
                 href="mailto:zzatosy@gmail.com.com"
@@ -59,7 +108,7 @@ const Contact = () => {
               <i className="bx bx-at contact__card-icon"></i>
 
               <h3 className="contact__card-title">Instagram</h3>
-              <span className="contact__card-data">12345678</span>
+              <span className="contact__card-data">willia.m.m.m</span>
 
               <a
                 href="https://www.instagram.com/willia.m.m.m/"
@@ -72,7 +121,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="contact__content">
+        <div ref={rightItem} className="contact__content">
           <h3 className="contact__title">Write me your project</h3>
           <form ref={form} onSubmit={sendEmail} className="contact__form">
             <div className="contact__form-div">

@@ -1,21 +1,70 @@
-import React from "react";
+import React, {useRef, useEffect} from "react";
 import "./about.css";
 import AboutImg from "../../assets/about.jpg";
 import Essay from "../../assets/essay.pdf";
 import Info from "./Info";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
+
+  const sectionRef = useRef(null);
+  useEffect(() => {
+    const el = sectionRef.current;
+    gsap.fromTo(el, {opacity: 0 }, {opacity: 1, duration: 0.5, scrollTrigger: {
+      trigger: el,
+      scrub: true,
+      start: "top center",
+      end: "30px"
+    }})
+  });
+
+  const hItem = useRef(null);
+  useEffect(() => {
+    const el = hItem.current;
+    gsap.fromTo(el, {y: -100}, {y: 0, scrollTrigger: {
+      trigger: el,
+      scrub: true,
+      start: "top center",
+      end: "30px"
+    }})
+  });
+
+  const txtItem = useRef(null);
+  useEffect(() => {
+    const el = txtItem.current;
+    gsap.fromTo(el, {y: 40}, {y: 0, scrollTrigger: {
+      trigger: el,
+      scrub: true,
+      start: "top bottom",
+      end: "30px"
+    }})
+  })
+  
+  const imgItem = useRef(null);
+  useEffect(() => {
+    const el = imgItem.current;
+    gsap.fromTo(el, {x: -40}, {x: 0, scrollTrigger: {
+      trigger: el,
+      scrub: true,
+      start: "top bottom",
+      end: "10px"
+    }})
+  })
+
   return (
-    <section className="about section" id="about">
-      <h2 className="section__title">About Me</h2>
+    <section ref={sectionRef} className="fadeIn" id="about">
+      <h2 ref={hItem} className="section__title">About Me</h2>
       <span className="section__subtitle">My introduction</span>
 
       <div className="about__container container grid">
-        <img src={AboutImg} alt="" className="about__img" />
+        <img ref={imgItem} src={AboutImg} alt="" className="about__img" />
 
         <div className="about__data">
           <Info />
-          <p className="about__description">
+          <p ref={txtItem} className="about__description">
             As a experienced frontend developer, proficient in HTML, CSS, JavaScript and
             React. Let's create visually appealing interfaces for a
             seamless user experience.

@@ -1,11 +1,18 @@
-import React from "react";
-import "./home.css"
+import React, {useRef, useEffect} from "react";
+import "./home.css";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Data = () => {
+  const sectionRef = useRef(null);
+  const hItem = useRef(null);
+
   return (
-    <div className="home__data">
-      <h1 className="home__title">
-        Milet ミレイ
+    <div ref={sectionRef} className="home__data">
+      <h1 ref={hItem} className="home__title">
+        Will 
         <svg
           width="36"
           height="36"

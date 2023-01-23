@@ -47,6 +47,10 @@
     margin-bottom: var(--mb-2-5);
 }
 
+.fadeIn {
+    opacity: 1;
+}
+
 
 /*=============== BREAKPOINTS ===============*/
 /* For large devices */

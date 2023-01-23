@@ -1,6 +1,10 @@
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./qualification.css";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Qualification = () => {
     const [toggleState, setToggleState] = useState(1);
@@ -9,9 +13,44 @@ const Qualification = () => {
         setToggleState(index);
     };
 
+    const sectionRef = useRef(null);
+    const hItem = useRef(null);
+
+    useEffect(() => {
+      const el = sectionRef.current;
+      gsap.fromTo(el, {opacity: 0 }, {opacity: 1, duration: 3, scrollTrigger: {
+        trigger: el,
+        scrub: true,
+        start: "top center",
+        end: "30px"
+      }})
+    })
+
+    useEffect(() => {
+        const el = hItem.current;
+        gsap.fromTo(el, {y: -100}, {y: 0, scrollTrigger: {
+          trigger: el,
+          scrub: true,
+          start: "top center",
+          end: "30px"
+        }})
+      })
+
+
+      const boxItem = useRef(null);
+      useEffect(() => {
+        const el = boxItem.current;
+        gsap.fromTo(el, {y: 30}, {y: 0, scrollTrigger: {
+            trigger: el,
+            scrub: true,
+            start: "top center",
+            end: "30px"
+        }})
+      })
+
   return (
-    <section className="qualification section">
-      <h2 className="section__title">Qualification</h2>
+    <section ref={sectionRef} className="qualification section">
+      <h2 ref={hItem} className="section__title">Qualification</h2>
       <span className="section__subtitle">My personal journey</span>
 
       <div className="qualification__container container">
@@ -27,7 +66,7 @@ const Qualification = () => {
 
 
 
-        <div className="qualification__sections">
+        <div ref={boxItem} className="qualification__sections">
             <div className={toggleState === 1 ? "qualification__content qualification__content-active" : "qualification__content"}>
                 <div className="qualification__data">
                     <div>

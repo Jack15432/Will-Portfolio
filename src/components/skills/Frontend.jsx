@@ -1,8 +1,26 @@
-import React from "react";
+import React, {useRef, useEffect} from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Frontend = () => {
+
+  const sectionRef = useRef(null);
+  useEffect(() => {
+    const el = sectionRef.current;
+    gsap.fromTo(el, {x: -30}, {x: 0, scrollTrigger: {
+      trigger: el,
+      scrub: true,
+      start: "top bottom",
+      end: "10px",
+      toggleActions: "restart complete reverse pause"
+    }})
+  });
+
+
   return (
-    <div className="skills__content">
+    <div ref={sectionRef} className="skills__content">
       <h3 className="skills__title">Frontend developer</h3>
       <div className="skills__box">
         <div className="skills__group">

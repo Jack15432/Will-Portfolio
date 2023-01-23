@@ -1,5 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./service.css";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Service = () => {
     const [toggleState, setToggleState] = useState(0);
@@ -8,11 +12,45 @@ const Service = () => {
         setToggleState(index);
     }
 
+    const sectionRef = useRef(null);
+    const hItem = useRef(null);
+
+    useEffect(() => {
+      const el = sectionRef.current;
+      gsap.fromTo(el, {opacity: 0 }, {opacity: 1, duration: 3, scrollTrigger: {
+        trigger: el,
+        scrub: true,
+        start: "top center",
+        end: "10px"
+      }})
+    })
+
+    useEffect(() => {
+      const el = hItem.current;
+      gsap.fromTo(el, {y: -100}, {y: 0, scrollTrigger: {
+        trigger: el,
+        scrub: true,
+        start: "top center",
+        end: "10px"
+      }})
+    })
+
+    const boxItem = useRef(null);
+    useEffect(() => {
+      const el = boxItem.current;
+      gsap.fromTo(el, {y: 30}, {y: 0, scrollTrigger: {
+        trigger: el,
+        scrub: true,
+        start: "top center",
+        end: "10px"
+      }})
+    })
+
   return (
-    <section className="services section" id="services">
-      <h2 className="section__title">Services</h2>
-      <span className="section__subtitle">What I offer</span>
-      <div className="services__container container grid">
+    <section ref={sectionRef} className="fadeIn" id="services">
+      <h2 ref={hItem} className="section__title">Services</h2>
+      <span  className="section__subtitle">What I offer</span>
+      <div ref={boxItem} className="services__container container grid">
         <div className="services__content">
           <div>
             <i className="uil uil-web-grid services__icon"></i>

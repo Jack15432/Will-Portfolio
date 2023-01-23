@@ -1,8 +1,26 @@
-import React from 'react'
+import React, {useRef, useEffect} from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Info = () => {
+
+  const boxItem = useRef(null);
+
+  useEffect(() => {
+    const el = boxItem.current;
+    gsap.fromTo(el, {y: -100}, {y: 0, scrollTrigger: {
+      trigger: el,
+      scrub: true,
+      start: "top center",
+      end: "30px"
+    }})
+  });
+
+
   return (
-    <div className="about__info grid">
+    <div ref={boxItem} className="about__info grid">
         <div className="about__box">
         <i class='bx bx-award about__icon'></i>
             <h3 className="about__title">Experience</h3>

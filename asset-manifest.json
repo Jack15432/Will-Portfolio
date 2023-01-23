@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/Milet/static/css/main.ad128c99.css",
-    "main.js": "/Milet/static/js/main.706f6514.js",
-    "static/js/787.1ed0c42c.chunk.js": "/Milet/static/js/787.1ed0c42c.chunk.js",
-    "static/media/essay.pdf": "/Milet/static/media/essay.bc386efde30df9288a08.pdf",
-    "static/media/about.jpg": "/Milet/static/media/about.f1a9b3eb23424604f97a.jpg",
-    "static/media/profile.jpg": "/Milet/static/media/profile.f1a9b3eb23424604f97a.jpg",
-    "static/media/testimonial3.png": "/Milet/static/media/testimonial3.2e18bfe27c6d2e2e9fdc.png",
-    "static/media/testimonial2.png": "/Milet/static/media/testimonial2.39a53f7f092f07f5bceb.png",
-    "static/media/testimonial1.png": "/Milet/static/media/testimonial1.89079c1d25f2c94ceb89.png",
-    "index.html": "/Milet/index.html",
-    "main.ad128c99.css.map": "/Milet/static/css/main.ad128c99.css.map",
-    "main.706f6514.js.map": "/Milet/static/js/main.706f6514.js.map",
-    "787.1ed0c42c.chunk.js.map": "/Milet/static/js/787.1ed0c42c.chunk.js.map"
+    "main.css": "/Will-Portfolio/static/css/main.9726174c.css",
+    "main.js": "/Will-Portfolio/static/js/main.7091e2d3.js",
+    "static/js/787.1ed0c42c.chunk.js": "/Will-Portfolio/static/js/787.1ed0c42c.chunk.js",
+    "static/media/essay.pdf": "/Will-Portfolio/static/media/essay.bc386efde30df9288a08.pdf",
+    "static/media/about.jpg": "/Will-Portfolio/static/media/about.f1a9b3eb23424604f97a.jpg",
+    "static/media/profile.jpg": "/Will-Portfolio/static/media/profile.f1a9b3eb23424604f97a.jpg",
+    "static/media/testimonial3.png": "/Will-Portfolio/static/media/testimonial3.2e18bfe27c6d2e2e9fdc.png",
+    "static/media/testimonial2.png": "/Will-Portfolio/static/media/testimonial2.39a53f7f092f07f5bceb.png",
+    "static/media/testimonial1.png": "/Will-Portfolio/static/media/testimonial1.89079c1d25f2c94ceb89.png",
+    "index.html": "/Will-Portfolio/index.html",
+    "main.9726174c.css.map": "/Will-Portfolio/static/css/main.9726174c.css.map",
+    "main.7091e2d3.js.map": "/Will-Portfolio/static/js/main.7091e2d3.js.map",
+    "787.1ed0c42c.chunk.js.map": "/Will-Portfolio/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ad128c99.css",
-    "static/js/main.706f6514.js"
+    "static/css/main.9726174c.css",
+    "static/js/main.7091e2d3.js"
   ]
 }
